@@ -243,6 +243,8 @@ def story_corridor3_1f():
     else:
         print("Unknown Reply.\n")
 
+#test
+
 start()
 
 
