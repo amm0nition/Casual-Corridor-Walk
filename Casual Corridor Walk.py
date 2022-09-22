@@ -155,6 +155,8 @@ def story_classroom_math_1():
     elif response == "left":
         print("You met Steve and he challenged you to a 'Rock, Paper, Scissor' game.")
         rock_paper_scissors()
+    elif response == "backward":
+        story_corridor2_1f()
 
 # story_classroom_math_2 - Player's given a randomly generated math question. Solve it!
 def story_classroom_mathquiz():
@@ -236,7 +238,7 @@ def story_corridor3_1f():
     response = ""
     while response not in stairway:
         response = input(
-            "You've reached the end of the corridor.\nTo your right is the staircase. Which way you're going?\n'upstairs/downstairs")
+            "You've reached the end of the corridor.\nTo your right is the staircase. Which way you're going?\n'upstairs/downstairs\n")
     if response == "upstairs":
         story_corridor1_2f()
     elif response == "downstairs":
@@ -261,23 +263,14 @@ def storage_room():
 
     convolist = (convo1, convo2, convo3)
 
-    print(random.choice(convolist))
-    
-    if convolist == convo1:
-        convo_1()
-    else:
-        if convolist == convo2:
-            convo_1()
-    
+    convochoise = print(random.choice(convolist))
+    print(convochoise)
 
-def convo_1():
-    response = ""
-    while response not in yes_no:
-        response = input("Would you help the cleaner cleaning up the storage room?\nyes/no\n")
-    if response == "yes":
-        print("Cleaner: Great! now grab that broom and help me clean this room")
-        time.sleep(3)  # import time
-        print("Your cleaning progress are: 20%")
+    if convochoise == convo1:
+        time.sleep(3)
+        print("Wouldn't you agree?")
+
+      
 
 
 
