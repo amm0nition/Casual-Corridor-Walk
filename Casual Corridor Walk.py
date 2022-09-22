@@ -263,12 +263,18 @@ def storage_room():
 
     convolist = (convo1, convo2, convo3)
 
-    convochoise = print(random.choice(convolist))
-    print(convochoise)
+    convochoice = print(random.choice(convolist))
+    print(convochoice)
 
-    if convochoise == convo1:
+    if convochoice == convo1:
         time.sleep(3)
-        print("Wouldn't you agree?")
+        print("Im here to help you cleaning up")
+    elif convochoice == convo2:
+          time.sleep(3) 
+          print("Yes im not supposed to be here")
+    elif convochoice == convo3:
+          time.sleep(2)
+          print("because i bolos")
 
       
 
