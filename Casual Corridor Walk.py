@@ -261,6 +261,22 @@ def storage_room():
 
     print(random.choice(convolist))
 
+def story_corridor1_2f():
+    response = ""
+    while response not in directions:
+        response = input(
+            "You are now on second floor.\nWhich direction would you like to go?\nleft/right/forward/backward\n")
+    if response == "left":
+        quit()
+    elif response == "right":
+        quit()
+    elif response == "forward":
+        quit()
+    elif response == "backward":
+        quit()
+    else:
+        print("Unknown Reply.\n")
+
 start()
 
 
