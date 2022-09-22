@@ -1,6 +1,7 @@
 # Pre-requisitives
 from itertools import count
 from random import randint
+from time import time
 from urllib import response
 import random
 import operator
@@ -249,17 +250,36 @@ def story_basement1():
     while response not in directions:
         response = input("*cough cough* you went down to an old basement, seems like it's havent been touched for years. Which direction do you want to go?\nright/left/forward/upstairs\n")
     if response == "right":
-        print("You see a suspicious door infront of you and you open it, you see a teacher cleaning up a storage room.")
+        print("You see a suspicious door infront of you and you open it, you see a cleaner is cleaning up a storage room.")
         storage_room()
-#storage_room - if player choose right, they will be directed to a conversation(random output) with the teacher
+
+#storage_room - if player choose right, they will be directed to a conversation(random output) with the cleaner
 def storage_room():
-    convo1 = ("Hello, there why are you here to help me?")
-    convo2 = ("Why are you here??")
-    convo3 = ("???")
+    convo1 = ("Cleaner: What are you doing here??????")
+    convo2 = ("Cleaner: You are not supposed to be here?")
+    convo3 = ("Cleaner: Why are you not in class")
 
     convolist = (convo1, convo2, convo3)
 
     print(random.choice(convolist))
+    
+    if convolist == convo1:
+        convo_1()
+    else:
+        if convolist == convo2:
+            convo_1()
+    
+
+def convo_1():
+    response = ""
+    while response not in yes_no:
+        response = input("Would you help the cleaner cleaning up the storage room?\nyes/no\n")
+    if response == "yes":
+        print("Cleaner: Great! now grab that broom and help me clean this room")
+        time.sleep(3)  # import time
+        print("Your cleaning progress are: 20%")
+
+
 
 start()
 
@@ -284,3 +304,5 @@ start()
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠠⠂⡄⢀⠈⠀⠐⠁⠀⡳⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠀⠢⠀⡄⡔⠳⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠷⠁⠀⠀⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠑⠑⠑⠑⠑⠑⠑⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#                      Xuě huā piāo piāo běi fēng xiāo xiāo
+#                          iān dì yí piàn cāng máng                   
