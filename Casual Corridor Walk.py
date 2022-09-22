@@ -235,7 +235,7 @@ def story_corridor3_1f():
     response = ""
     while response not in stairway:
         response = input(
-            "You've reached the end of the corridor.\nTo your right is the staircase. Which way you're going?\n'upstairs/downstairs")
+            "You've reached the end of the corridor.\nTo your right is the staircase. Which way you're going?\n'upstairs/downstairs'\n")
     if response == "upstairs":
         story_corridor1_2f()
     elif response == "downstairs":
@@ -243,15 +243,15 @@ def story_corridor3_1f():
     else:
         print("Unknown Reply.\n")
 
-#story_basement1 - If player choose downstair they will be directed to story basement 
+# story_basement1 - If player choose downstair they will be directed to story basement 
 def story_basement1():
     response = ""
     while response not in directions:
-        response = input("*cough cough* you went down to an old basement, seems like it's havent been touched for years. Which direction do you want to go?\nright/left/forward/upstairs\n")
+        response = input("*cough cough* You went down to an old basement. It seems that nobody have gone inside for years. Which direction do you want to go?\nright/left/forward/upstairs\n")
     if response == "right":
-        print("You see a suspicious door infront of you and you open it, you see a teacher cleaning up a storage room.")
+        print("You see a door infront of you and approached it.\nYou opened the door and see someone inside.")
         storage_room()
-#storage_room - if player choose right, they will be directed to a conversation(random output) with the teacher
+# storage_room - if player choose right, they will be directed to a conversation(random output) with the teacher
 def storage_room():
     convo1 = ("Hello, there why are you here to help me?")
     convo2 = ("Why are you here??")
@@ -261,22 +261,29 @@ def storage_room():
 
     print(random.choice(convolist))
 
+# story_corridor1_2f - Corridor of Second Floor
 def story_corridor1_2f():
     response = ""
     while response not in directions:
         response = input(
             "You are now on second floor.\nWhich direction would you like to go?\nleft/right/forward/backward\n")
     if response == "left":
-        quit()
+        story_library_1()
     elif response == "right":
-        quit()
+        story_ourclassroom_1()
     elif response == "forward":
-        quit()
+        story_corridor2_2f()
     elif response == "backward":
-        quit()
+        story_window_2f()
     else:
         print("Unknown Reply.\n")
 
+def story_library():
+
+# story_window_2f - Player looks over the window at the second floor
+def story_window_2f():
+    print("You looked over the window.\nYou can't see anything over it...\n")
+    story_corridor1_2f()
 start()
 
 
