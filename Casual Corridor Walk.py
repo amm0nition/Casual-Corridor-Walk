@@ -1,7 +1,7 @@
 # Pre-requisitives
 from itertools import count
 from random import randint
-from time import time
+import time
 from urllib import response
 import random
 import operator
@@ -250,31 +250,77 @@ def story_corridor3_1f():
 def story_basement1():
     response = ""
     while response not in directions:
-        response = input("*cough cough* you went down to an old basement, seems like it's havent been touched for years. Which direction do you want to go?\nright/left/forward/upstairs\n")
+        response = input("You are now in the basement of the school.Which direction do you want to go?\nright/left/forward/upstairs\n")
     if response == "right":
         print("You see a suspicious door infront of you and you open it, you see a cleaner is cleaning up a storage room.")
         storage_room()
 
 #storage_room - if player choose right, they will be directed to a conversation(random output) with the cleaner
 def storage_room():
-    convo1 = ("Cleaner: What are you doing here??????")
-    convo2 = ("Cleaner: You are not supposed to be here?")
-    convo3 = ("Cleaner: Why are you not in class")
+    cleanerconvo1 = ("Cleaner: Hello there, are you here to help me?")
+    cleanerconvo2 = ("Cleaner: Hello you must be that student everyone were talking about, do you mind helping me cleaning up this room?")
+    cleanerconvo3 = ("Do you like cleaning up room?")
+ 
+    cleanerconvolist = [cleanerconvo1, cleanerconvo2, cleanerconvo3]
 
-    convolist = (convo1, convo2, convo3)
+    convo = random.choice(cleanerconvolist)
+    print(convo)   
 
-    convochoice = print(random.choice(convolist))
-    print(convochoice)
+#Continues the conversation
+    if convo == cleanerconvo1:
+       convo1()
+    elif convo == cleanerconvo2:
+        time.sleep(1)
+        print("You: I think you refer to the wrong guy.")
+        convo2()
 
-    if convochoice == convo1:
-        time.sleep(3)
-        print("Im here to help you cleaning up")
-    elif convochoice == convo2:
-          time.sleep(3) 
-          print("Yes im not supposed to be here")
-    elif convochoice == convo3:
-          time.sleep(2)
-          print("because i bolos")
+    elif convo == cleanerconvo3:
+            time.sleep(1)
+            print("lorem ipsum")
+
+def convo1():
+    response = ""
+    while response not in yes_no:
+        response = input("Type your answer\nyes/no\n")
+    if response == "yes":
+        print("Great, now grab that broom and lets clean up this dusty space!")
+        time.sleep(1)
+        print("Cleaning up progress: 10%")
+        time.sleep(5)
+        print("Cleaning up progress: 45%")
+        time.sleep(6)
+        print("Cleaning up progress: 69%")
+        time.sleep(7)
+        print("Cleaning up progress: 90%")
+        time.sleep(8)
+        print("Cleaning up progress: 100%")
+        print("Cleaner: Nice work! thankyou for the helping hand, now you may get out of this room")
+        story_basement1()
+    elif response == "no":
+        print("Cleaner: Fine I'll do it all by myself")
+        story_basement1()
+
+def convo2():
+    response = ""
+    while response not in yes_no:
+        response = input("Will you help the cleaner?\nyes/no\n")
+    if response == "yes":
+        print("Cleaner: Free labour?! Ill take it!")
+        time.sleep(1)
+        print("Cleaning up progress: 10%")
+        time.sleep(2)
+        print("Cleaning up progress: 30%")
+        time.sleep(2)
+        print("Cleaning up progress: 54%")
+        time.sleep(4)
+        print("Cleaning up progress: 70%")
+        time.sleep(5)
+        print("Cleaning up progress: 90%")
+        time.sleep(6)
+        print("Cleaning up progress: 100%")
+        print("Cleaner: Great job kid, now you shall get out of this room")
+        story_basement1()
+     
 
       
 
