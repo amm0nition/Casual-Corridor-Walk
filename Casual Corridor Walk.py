@@ -254,6 +254,11 @@ def story_basement1():
     if response == "right":
         print("You see a suspicious door infront of you and you open it, you see a cleaner is cleaning up a storage room.")
         storage_room()
+    elif response == "upstairs":
+        story_corridor3_1f()
+    elif response == "forward":
+        print("You met the suspicious figure again")
+
 
 #storage_room - if player choose right, they will be directed to a conversation(random output) with the cleaner
 def storage_room():
@@ -273,17 +278,29 @@ def storage_room():
         time.sleep(1)
         print("You: I think you refer to the wrong guy.")
         convo2()
-
     elif convo == cleanerconvo3:
             time.sleep(1)
-            print("lorem ipsum")
+            print("You: I dont really like cleaning up room but sure Ill help you")
+            time.sleep(1)
+            print("Cleaning up progress: 10%")
+            time.sleep(2)
+            print("Cleaning up progress: 45%")
+            time.sleep(3)
+            print("Cleaning up progress: 63%")
+            time.sleep(3)
+            print("Cleaning up progress: 89%")
+            time.sleep(4)
+            print("Cleaning up progress: 100%")
+            print("Cleaner: Great, now let's exit the room")
+            story_basement1()
 
+#If they get convo 1
 def convo1():
     response = ""
     while response not in yes_no:
         response = input("Type your answer\nyes/no\n")
     if response == "yes":
-        print("Great, now grab that broom and lets clean up this dusty space!")
+        print("Cleaner: Great, now grab that broom and lets clean up this dusty space!")
         time.sleep(1)
         print("Cleaning up progress: 10%")
         time.sleep(5)
@@ -300,6 +317,7 @@ def convo1():
         print("Cleaner: Fine I'll do it all by myself")
         story_basement1()
 
+#If they get convo 2
 def convo2():
     response = ""
     while response not in yes_no:
@@ -319,6 +337,9 @@ def convo2():
         time.sleep(6)
         print("Cleaning up progress: 100%")
         print("Cleaner: Great job kid, now you shall get out of this room")
+        story_basement1()
+    elif response == "no":
+        print("Cleaner:*Smh*")
         story_basement1()
      
 
