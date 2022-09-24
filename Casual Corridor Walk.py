@@ -134,9 +134,19 @@ def story_corridor2_1f():
 # story_classroom_ict_1 - ICT Room
 def story_classroom_ict_1():
     print("You entered the ICT room")
-    story_classroom_ict_2()   
+    story_classroom_ict_2()
 
-# story_classroom_math_1 - Math Classroom
+#story_classroom_ict_2 - Laptop broken
+def story_classroom_ict_2():
+    print("Teacher: Hello there! Please take a seat on one of these table and open Word scramble game.exe")
+    print("Starting WINDOWS")
+    time.sleep(1)
+    print("Windows error")
+    print("Teacher:Hmm seems like this laptop is broken, you are dismissed ")
+    story_corridor2_1f()
+    
+
+#story_classroom_math_1 - Math Room    
 def story_classroom_math_1():
     response = ""
     while response not in directions:
@@ -155,8 +165,8 @@ def story_classroom_math_1():
     elif response == "left":
         print("You met Steve and he challenged you to a 'Rock, Paper, Scissor' game.")
         rock_paper_scissors()
-    elif response == "backward":
-        story_corridor2_1f()
+    else:
+        print("Unkown Reply.\n")
 
 # story_classroom_math_2 - Player's given a randomly generated math question. Solve it!
 def story_classroom_mathquiz():
@@ -227,11 +237,23 @@ def rock_paper_scissors():
         else:
             print("The 'Rock' smashes scissors! You lose.")
         story_rps_ending()
+    else:
+            print("Unknown Reply.\n")
 
 # story_rps_ending - RPS Ending.
 def story_rps_ending():
-    print("You and Steve decided to go to the school canteen and enjoy your day together.")
-    quit()
+    response = ""
+    while response not in yes_no:
+        response = input(
+            "\nDo you want to continue the game?\nyes/no\n")
+        if response == "yes":
+            story_corridor2_1f()
+        elif response == "no":
+            print("Exiting Game...")
+            quit()
+        else:
+            print("Unknown Reply.\n")
+
 
 # story_corridor3_1f - End of Corridor 1F. Player will either go upstairs or downstairs.
 def story_corridor3_1f():
@@ -240,30 +262,48 @@ def story_corridor3_1f():
         response = input(
             "You've reached the end of the corridor.\nTo your right is the staircase. Which way you're going?\n'upstairs/downstairs\n")
     if response == "upstairs":
-        story_corridor1_2f()
+        story_balcony()
     elif response == "downstairs":
         story_basement1()
     else:
         print("Unknown Reply.\n")
 
+def story_balcony():
+    response = ""
+    while response not in directions:
+        response = input("*woosh woosh*wind blows around you.\nTo your right there are tulip flowers, to your left there is a hydroponic farm, to your forward is an empty space. Which direction do you want to look at closer?\nright/left/forward/downstairs\n ")
+    if response == "right":
+        print("lorem ipsum")
+    elif response == "left":
+        print("lorem ipsum")
+    elif response == "forward":
+        print("lorem ipsum")
+    elif response == "downstairs":
+        story_corridor3_1f()
+    else:
+        print("Unknown Reply.\n")
 #story_basement1 - If player choose downstair they will be directed to story basement 
 def story_basement1():
     response = ""
     while response not in directions:
         response = input("You are now in the basement of the school.Which direction do you want to go?\nright/left/forward/upstairs\n")
     if response == "right":
-        print("You see a suspicious door infront of you and you open it, you see a cleaner is cleaning up a storage room.")
+        print("You see a suspicious door infront of you and you opened it, you see a cleaner in the storage room.")
         storage_room()
     elif response == "upstairs":
         story_corridor3_1f()
     elif response == "forward":
         print("You met the suspicious figure again")
-
+        print("Suspicious figure just smack your head with broom, you fainted.")
+        retry()
+    elif response == "left":
+        print("Oh look a trophy shelf i wonder who is this belongs to")
+        story_basement1()
 
 #storage_room - if player choose right, they will be directed to a conversation(random output) with the cleaner
 def storage_room():
     cleanerconvo1 = ("Cleaner: Hello there, are you here to help me?")
-    cleanerconvo2 = ("Cleaner: Hello you must be that student everyone were talking about, do you mind helping me cleaning up this room?")
+    cleanerconvo2 = ("Cleaner: Hello you must be that student everyone's talking about, do you mind helping me cleaning up this room?")
     cleanerconvo3 = ("Do you like cleaning up room?")
  
     cleanerconvolist = [cleanerconvo1, cleanerconvo2, cleanerconvo3]
@@ -282,19 +322,19 @@ def storage_room():
             time.sleep(1)
             print("You: I dont really like cleaning up room but sure Ill help you")
             time.sleep(1)
-            print("Cleaning up progress: 10%")
+            print("Cleaning progress: 10%")
             time.sleep(2)
-            print("Cleaning up progress: 45%")
+            print("Cleaning progress: 45%")
             time.sleep(3)
-            print("Cleaning up progress: 63%")
+            print("Cleaning progress: 63%")
             time.sleep(3)
-            print("Cleaning up progress: 89%")
+            print("Cleaning progress: 89%")
             time.sleep(4)
             print("Cleaning up progress: 100%")
             print("Cleaner: Great, now let's exit the room")
             story_basement1()
 
-#If they get convo 1
+#convo1 - If they get convo 1
 def convo1():
     response = ""
     while response not in yes_no:
@@ -302,22 +342,22 @@ def convo1():
     if response == "yes":
         print("Cleaner: Great, now grab that broom and lets clean up this dusty space!")
         time.sleep(1)
-        print("Cleaning up progress: 10%")
+        print("Cleaning progress: 10%")
         time.sleep(5)
-        print("Cleaning up progress: 45%")
+        print("Cleaning progress: 45%")
         time.sleep(6)
-        print("Cleaning up progress: 69%")
+        print("Cleaning progress: 69%")
         time.sleep(7)
-        print("Cleaning up progress: 90%")
+        print("Cleaning progress: 90%")
         time.sleep(8)
         print("Cleaning up progress: 100%")
-        print("Cleaner: Nice work! thankyou for the helping hand, now you may get out of this room")
+        print("Cleaner: Nice work! thankyou for your help, now you may get out of this room")
         story_basement1()
     elif response == "no":
-        print("Cleaner: Fine I'll do it all by myself")
+        print("Cleaner: Fine I'll do it all by myself.")
         story_basement1()
 
-#If they get convo 2
+#convo2 - If they get convo 2
 def convo2():
     response = ""
     while response not in yes_no:
@@ -325,17 +365,17 @@ def convo2():
     if response == "yes":
         print("Cleaner: Free labour?! Ill take it!")
         time.sleep(1)
-        print("Cleaning up progress: 10%")
+        print("Cleaning progress: 10%")
         time.sleep(2)
-        print("Cleaning up progress: 30%")
+        print("Cleaning progress: 30%")
         time.sleep(2)
-        print("Cleaning up progress: 54%")
+        print("Cleaning progress: 54%")
         time.sleep(4)
-        print("Cleaning up progress: 70%")
+        print("Cleaning progress: 70%")
         time.sleep(5)
-        print("Cleaning up progress: 90%")
+        print("Cleaning progress: 90%")
         time.sleep(6)
-        print("Cleaning up progress: 100%")
+        print("Cleaning progress: 100%")
         print("Cleaner: Great job kid, now you shall get out of this room")
         story_basement1()
     elif response == "no":
