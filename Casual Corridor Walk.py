@@ -273,13 +273,17 @@ def story_balcony():
     while response not in directions:
         response = input("*woosh woosh*wind blows around you.\nTo your right there are tulip flowers, to your left there is a hydroponic farm, to your forward is an empty space. Which direction do you want to look at closer?\nright/left/forward/downstairs\n ")
     if response == "right":
-        print("lorem ipsum")
+        print("50 white tulip are there, 30 red tulip are there and there are 45 blue tulip")
+        story_balcony()
     elif response == "left":
-        print("lorem ipsum")
+        print("You take a lattuce, it was tasty")
+        story_balcony()
     elif response == "forward":
-        print("lorem ipsum")
+        print("*Woosh* wind blew you off the building but there's a fence blocking you from falling down.")
+        story_balcony()
     elif response == "downstairs":
         story_corridor3_1f()
+        story_balcony()
     else:
         print("Unknown Reply.\n")
 #story_basement1 - If player choose downstair they will be directed to story basement 
@@ -299,6 +303,8 @@ def story_basement1():
     elif response == "left":
         print("Oh look a trophy shelf i wonder who is this belongs to")
         story_basement1()
+    else:
+         print("Unkown reply.")
 
 #storage_room - if player choose right, they will be directed to a conversation(random output) with the cleaner
 def storage_room():
